@@ -8,9 +8,8 @@ class snake {
         this.dy = 0;
         this.cell = [];
         this.maxCell = 2;
-        this.scoregame = 0;
     }
-    update() {
+     update() {
         if (this.endGame()) {
             this.x += this.dx;
             this.y += this.dy;
@@ -34,8 +33,7 @@ class snake {
             this.cell.pop();
         }
 
-        this.catchHandle();
-
+        this.dichuyen();
 
 
     }
@@ -47,17 +45,13 @@ class snake {
 
         if (!this.endGame()) {
             this.game.context.font = '35px Arial';
-            this.game.context.fillText("GAME OVER", 200, 300);
+            this.game.context.fillText("GAME OVER", 200, 300)
         }
 
-        if (this.eat()) {
-            this.scoregame++
-        }
-        document.querySelectorAll('#score').innerHTML = this.scoregame;
 
     }
 
-    catchHandle() {
+    dichuyen() {
         document.addEventListener('keydown', (e) => {
             if (e.which === 37 && this.dx === 0) {
                 this.dx = -this.grid;
